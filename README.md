@@ -1,4 +1,4 @@
-![MusicMonster](public/preview/favicon.png)
+![MusicMonster](/preview/favicon.png)
 
 # MusicMonster
 
