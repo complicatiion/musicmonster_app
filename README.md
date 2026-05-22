@@ -18,7 +18,6 @@ MusicMonster is a modern local-first Android music player.
 ![Preview 3](preview/prev8.jpg)
 ![Preview 4](preview/prev9.jpg)
 ![Preview 5](preview/prev10.jpg)
-![Preview 5](preview/prev11.jpg)
 
 ---
 
