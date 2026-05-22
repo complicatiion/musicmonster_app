@@ -1,148 +1,267 @@
 ![MusicMonster](/preview/favicon.png)
 
-# MusicMonster
+# MusicMonster Android Music Player App
 
-MusicMonster is a local-first browser music player built as a personal hobby project.
+MusicMonster is a modern local-first Android music player.
 
-It is designed for people who want to browse and play their own music library in a clean dark interface, keep everything local, and avoid external services or cloud dependencies. The application focuses on local folder imports, offline JSON database storage, queue management, playlists, metadata-based browsing, and a compact music-centered workflow.
-
-## Project status
-
-MusicMonster is **work in progress**.
-
-This project is not finished. Some areas are already usable and work well, while others are still being refined. You should expect rough edges, missing features, incomplete workflows, and occasional bugs. Behavior may change between versions as the project continues to evolve.
-
-This software is provided mainly as an experimental personal project and proof of concept, not as a polished production release.
-
-
-## Key features
-
-- Local music library import from folders and subfolders
-- Offline JSON database export and import
-- Album, artist, genre, folder, title, history, favorites, playlists, and top views
-- Queue-based playback with bottom player controls
-- ID3 metadata parsing for supported files
-- Album cover detection from tags and folder artwork
-- Playlist creation and M3U import/export
-- Local asset loading with no required external CDNs
-- Accent color customization
-- Search across the local library
-- Custom library sections
+---
 
 ## Previews
 
-![Preview 1](preview/preview1.jpg)
-![Preview 2](preview/preview2.jpg)
-![Preview 3](preview/preview3.jpg)
-![Preview 4](preview/preview4.jpg)
-![Preview 5](preview/preview5.jpg)
-![Preview 1](preview/preview6.jpg)
-![Preview 2](preview/preview7.jpg)
-![Preview 3](preview/preview8.jpg)
-![Preview 4](preview/preview9.jpg)
-![Preview 5](preview/preview10.jpg)
-![Preview 5](preview/preview11.jpg)
+![Preview 1](preview/prev1.jpg)
+![Preview 2](preview/prev2.jpg)
+![Preview 3](preview/prev3.jpg)
+![Preview 4](preview/prev4.jpg)
+![Preview 5](preview/prev5.jpg)
+![Preview 1](preview/prev6.jpg)
+![Preview 2](preview/prev7.jpg)
+![Preview 3](preview/prev8.jpg)
+![Preview 4](preview/prev9.jpg)
+![Preview 5](preview/prev10.jpg)
+![Preview 5](preview/prev11.jpg)
 
+---
 
-## Design goals
+## Start
 
-MusicMonster is built around a few simple ideas:
+Download the prevuild APK from Github Releases page: musicmonster-app-v.2.0.5-release.apk
 
-- **Local first**: your files stay on your system
-- **Browser based**: no heavyweight desktop install required for the core app structure
-- **Media focused**: quick access to albums, tracks, queue, and playlists
-- **Visually clean**: dark UI, compact controls, and a music-centered layout
-- **Practical over perfect**: features are added and refined iteratively
+Install the generated APK on an Android 10+ device.
 
-## Intended use
+On first launch, grant the required media permissions when Android asks for them. Depending on the Android version, permission names may differ because Android changed media permission handling in newer versions.
 
-MusicMonster is intended for:
+After the app opens, use **Settings → Local Library** to scan your music library or select a specific local music folder.
 
-- private local music collections
-- personal music library browsing and playback
-- testing UI and workflow ideas for a browser-based music application
-- hobby and learning purposes
+---
 
-It is **not** presented as enterprise software, a commercial media platform, or a guaranteed long-term stable release.
+## Main Navigation
 
-## Installation and setup
+MusicMonster uses a mobile-first navigation structure.
 
-1. Download or extract the project files.
-2. Place your local font files in `assets/fonts/` if needed.
-3. Place your own logo and favicon in `assets/media/` if you want to customize branding.
-4. Open `index.html` in a modern browser.
-5. Import a music folder from within the app. (works bes with single Library Folder like "MUSIC" which contains additional subfolders)
+### Bottom Navigation
 
-Depending on browser behavior and local file access limitations, some features may work better in Chromium-based browsers than in others.
+| Home | Personal start page with picks, albums, artists, favorites and recent items |
+| Library | Albums, tracks, artists, genres, folders, podcasts and optional web libraries |
+| Search | Fast local search across the scanned music library |
+| Playlists | Local playlist creation, import and export |
+| Settings | Appearance, startup behavior, scanning, web libraries and library order |
 
-## Folder structure
+### Home Sections
 
-Typical important folders in the project:
+Home can show:
 
-- `assets/css/` – styling
-- `assets/js/` – application logic
-- `assets/fonts/` – local font files
-- `assets/media/` – logo, favicon, and visual assets
+- Discovery-style custom picks
+- Albums
+- Artists
+- Favorites
+- Top content
+- History-based entries
+- Playlist shortcuts
 
-## Recommended local fonts
+Custom picks are refreshed for a more dynamic start page.
 
-The project is prepared for local fonts. The intended setup is:
+---
 
-- `assets/fonts/googlesansregular.woff2`
-- `assets/fonts/googlesansbold.woff2`
+## Library
 
-If those files are missing, the browser will fall back to available system fonts.
+The Library section is split into focused segments.
 
-## Current limitations
+| Albums | Album grid with artwork fallback and album detail view |
+| Tracks | Compact track list for fast browsing |
+| Artists | Artist list with track grouping |
+| Genres | Genre grouping based on media metadata |
+| Folders | Folder-based browsing for local collections |
+| Podcasts | Separate local podcast area with its own folder selection |
+| Web libraries | Optional SoundCloud, Spotify, YouTube Music or custom web entries |
 
-A few important limitations are worth stating clearly:
+Album views use embedded artwork when available. If no artwork is found, MusicMonster shows the internal MusicMonster placeholder style.
 
-- Large libraries can still take time to process depending on browser performance and file count.
-- Some metadata and cover behavior depends on file format and how tags were written.
-- Not every feature is fully optimized yet.
-- Some workflows may still behave inconsistently in edge cases.
-- UI layout and performance tuning are still in progress.
+---
 
-## Disclaimer
+## Playback
 
-MusicMonster is a **private hobby project**.
+MusicMonster includes three player layers.
 
-It is provided **as is**, without any warranty, guarantee, or promise of fitness for a particular purpose. The author does not guarantee that the project is complete, bug-free, secure, stable, or suitable for any specific workflow.
+### Mini Player
 
-You use this project entirely at your own risk.
+The mini player stays available while browsing. It shows the active track and quick controls without blocking the library view.
 
-The author is not liable for:
+### Full Player
 
-- data loss
-- playback issues
-- corrupted libraries or metadata
-- compatibility problems
-- browser-specific issues
-- interruptions, bugs, or unexpected behavior
-- any direct or indirect damages resulting from the use or inability to use the project
+Tap the mini player to open the full player.
 
-## Non-commercial project notice
+The full player includes:
 
-This project is currently released for **private, personal, and non-commercial use only**, under the terms described in the license file.
+- large artwork area
+- track title and metadata
+- progress slider
+- previous / play-pause / next controls
+- shuffle
+- repeat mode
+- favorite toggle
 
-Commercial use is **not allowed** unless separate written permission is granted by the copyright holder.
+Repeat cycles through:
 
-## Contributing
+```text
+Off → Repeat Track → Repeat Queue → Off
+```
 
-There is currently no formal public contribution workflow.
+### Notification Microplayer
 
-If you adapt or test the project privately, keep in mind that the codebase is still moving and parts of it may change significantly.
+When playback is active, MusicMonster shows Android notification controls with:
 
-## Credits
+- album artwork
+- track title
+- album, folder or context text
+- previous
+- play / pause
+- next
 
-MusicMonster is a personal hobby project created and maintained by the complicatiion aka sksdesign aka sven404.
+This allows playback control from the notification shade while the app is in the background.
 
-If you redistribute or adapt it where the license permits, proper attribution is required.
+---
 
-## Final note
+## Favorites, History and Play Counts
 
-This project exists because building and refining local media tools is fun.
+MusicMonster keeps local interaction data so the app remains useful after closing and reopening it.
 
-It is intentionally practical, experimental, and still growing.
+Persisted local data includes:
 
+- scanned music library cache
+- selected music folder
+- selected podcast folder
+- favorites
+- playback history
+- play counts
+- startup page
+- accent color
+- library order
+- appearance settings
+- web library settings
 
+The local cache can be cleared from the settings screen when needed.
+
+---
+
+## Podcasts
+
+Podcasts are handled as a separate library type.
+
+In Settings, select a dedicated podcast folder and scan it separately from the main music library. This keeps podcast files separated from albums, tracks and regular music folders.
+
+---
+
+## Web Libraries
+
+MusicMonster can show optional web library entries inside the Library section.
+
+Supported presets:
+
+- SoundCloud
+- Spotify
+- YouTube Music
+- Custom Web Library
+
+The custom web library supports a user-defined name and URL.
+
+These entries are meant as optional convenience views. MusicMonster is not affiliated with SoundCloud, Spotify, YouTube, Google or any other third-party web service.
+
+---
+
+## Local Library Scanning
+
+MusicMonster scans local audio files through Android media APIs and selected folder access.
+
+The scanner is designed to avoid typical messenger and social media voice-message folders by default, including common paths for apps such as WhatsApp and other messaging tools. This can be changed in Settings if those files should be included.
+
+Recommended usage:
+
+1. Open Settings.
+2. Select or scan the local music folder.
+3. Select a separate podcast folder if needed.
+4. Let the scan finish.
+5. Browse albums, tracks, artists, genres, folders or podcasts.
+
+---
+
+## Appearance
+
+The default MusicMonster accent color is:
+
+```text
+#B6FF2F
+```
+
+Accent color affects:
+
+- active navigation pills
+- player controls
+- sliders
+- selected tabs
+- favorite states
+- logo tint
+- placeholder icons
+- focused controls
+
+The app includes preset accent colors and a custom color picker.
+
+---
+
+## Car Mode
+
+Car Mode is a simplified control mode for easier interaction while driving or when the device is mounted.
+
+The mode is toggled from the top app bar and focuses the UI more strongly around player controls and quick playback interaction.
+
+Use it responsibly. Do not interact with the app while driving if it is unsafe or illegal in your situation.
+
+---
+
+## Import and Export
+
+MusicMonster includes local import and export features for practical backup and transfer workflows.
+
+Available areas:
+
+- Settings export
+- Settings import
+- Playlist import
+- Playlist export
+- M3U-style playlist handling
+- local cache reset
+
+The app is designed to stay local-first. It does not require a cloud account for local music playback.
+
+---
+
+## Important Notes
+
+- MusicMonster does not include music files.
+- You are responsible for the rights to any audio files you play through the app.
+- Web library entries are optional and depend on the behavior of the referenced web services.
+- Some web services may restrict login, playback, embedded use or WebView behavior.
+- Android media permissions differ between Android versions.
+- Artwork availability depends on the metadata embedded in the audio files and on Android media access.
+- Very large libraries may take longer to scan on slower devices.
+- The app is still a work in progress and may require refinement for specific devices and library structures.
+
+---
+
+## License
+
+Copyright (c) 2026 complicatiion aka sksdesign aka sven404  
+All rights reserved unless explicitly granted below or otherwise mentioned/licensed, or generally based on an open-source license.
+
+See further details in:
+
+```text
+LICENSE.md
+```
+
+Review the license before redistribution, modification, packaging or commercial/internal reuse.
+
+---
+
+### © complicatiion aka sksdesign · 2026
+
+---
