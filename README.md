@@ -2,7 +2,7 @@
 
 # MusicMonster Android Music Player App
 
-MusicMonster is a modern local-first Android music player.
+MusicMonster is a modern local-first Android music player with WEB App Integration Options.
 
 ---
 
