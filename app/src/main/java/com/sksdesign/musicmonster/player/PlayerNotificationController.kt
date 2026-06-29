@@ -50,7 +50,7 @@ class PlayerNotificationController(private val context: Context) {
         val previous = PendingIntent.getBroadcast(context, 1, Intent(context, PlayerActionReceiver::class.java).setAction(ACTION_PREVIOUS), pendingIntentFlags())
         val toggle = PendingIntent.getBroadcast(context, 2, Intent(context, PlayerActionReceiver::class.java).setAction(ACTION_TOGGLE), pendingIntentFlags())
         val next = PendingIntent.getBroadcast(context, 3, Intent(context, PlayerActionReceiver::class.java).setAction(ACTION_NEXT), pendingIntentFlags())
-        val largeIcon = decodeArtwork(track.artworkUri)
+        val largeIcon = notificationLogo()
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.logo_mark)
@@ -79,7 +79,5 @@ class PlayerNotificationController(private val context: Context) {
         return PendingIntent.FLAG_UPDATE_CURRENT or if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) PendingIntent.FLAG_IMMUTABLE else 0
     }
 
-    private fun decodeArtwork(uri: Uri?) = runCatching {
-        if (uri == null) null else context.contentResolver.openInputStream(uri)?.use { BitmapFactory.decodeStream(it) }
-    }.getOrNull()
+    private fun notificationLogo() = BitmapFactory.decodeResource(context.resources, R.drawable.logo)
 }

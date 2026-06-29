@@ -15,7 +15,7 @@
         <receiver
             android:name=".player.PlayerActionReceiver"
             android:exported="false" />
-        <activity android:name=".MainActivity" android:screenOrientation="portrait" android:exported="true">
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
