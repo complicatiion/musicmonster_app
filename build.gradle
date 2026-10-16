@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.application' version '8.7.3' apply false
+    id 'org.jetbrains.kotlin.android' version '2.0.21' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.21' apply false
+}
+
+// Android Studio may trigger Gradle's updateDaemonJvm task during the
+// "Migrate project to Daemon JVM criteria" workflow. With Gradle 9 this task
+// tries to resolve download URLs for many operating systems/architectures.
+// JetBrains Runtime/JBR is not available through all resolver combinations,
+// so the task can fail before the APK build starts. MusicMonster builds with
+// the local Android Studio JBR/JDK, therefore no auto-provisioned JDK URLs are
+// required here.
+tasks.matching { it.name == "updateDaemonJvm" }.configureEach {
+    toolchainPlatforms = []
+}
